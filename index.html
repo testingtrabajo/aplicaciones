@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aplicaciones Gemini & AI Studio | Listado Profesional</title>
+  <style>
+    /* Reset y base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-primary: #2c3e50;
+      --color-secondary: #34495e;
+      --color-accent: #3498db;
+      --color-accent-hover: #2980b9;
+      --color-bg: #f8f9fa;
+      --color-card-bg: #ffffff;
+      --color-text: #2c3e50;
+      --color-text-light: #7f8c8d;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+      --border-radius: 10px;
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: white;
+      border-radius: var(--border-radius);
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    header h1 { font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; }
+    header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+    /* Filtros de categoría */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      background: white;
+      border: 2px solid var(--color-accent);
+      color: var(--color-accent);
+      padding: 0.5rem 1.25rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--color-accent);
+      color: white;
+    }
+
+    /* Grid de aplicaciones */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Tarjeta de aplicación */
+    .app-card {
+      background: var(--color-card-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      border-left: 4px solid var(--color-accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-accent), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .app-card:hover::before { opacity: 1; }
+
+    .app-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .app-card h3::before {
+      content: "◆";
+      color: var(--color-accent);
+      font-size: 0.8rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+      width: fit-content;
+    }
+
+    .badge.economia { background: #e8f4fd; color: #2980b9; }
+    .badge.musica { background: #fde8e8; color: #c0392b; }
+    .badge.desarrollo { background: #e8f5e9; color: #27ae60; }
+    .badge.entretenimiento { background: #fef3e2; color: #d35400; }
+    .badge.herramientas { background: #f4ecf7; color: #8e44ad; }
+
+    .app-card p {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .app-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--color-accent);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .app-link:hover {
+      background: var(--color-accent-hover);
+      transform: translateX(2px);
+    }
+
+    .app-link::after { content: "→"; font-weight: bold; }
+
+    /* Sección de notas */
+    .notes {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      margin-top: 2rem;
+      box-shadow: var(--shadow);
+      border-left: 4px solid #f39c12;
+    }
+
+    .notes h4 {
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .notes ul {
+      padding-left: 1.5rem;
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+    }
+
+    .notes li { margin-bottom: 0.4rem; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+      header p { font-size: 1rem; }
+      .app-card { padding: 1.25rem; }
+      .filters { flex-direction: column; align-items: center; }
+      .filter-btn { width: 100%; max-width: 250px; }
+    }
+
+    /* Print */
+    @media print {
+      body { background: white; padding: 0; }
+      .app-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+      .app-link { background: white; color: var(--color-accent); border: 1px solid var(--color-accent); }
+      .filters, .notes { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 Aplicaciones Gemini & AI Studio</h1>
+      <p>Recopilación profesional de herramientas desarrolladas con Google Gemini y AI Studio para productividad, música, finanzas, entretenimiento y más.</p>
+    </header>
+
+    <!-- Filtros por categoría -->
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Todas</button>
+      <button class="filter-btn" data-filter="economia">💰 Economía</button>
+      <button class="filter-btn" data-filter="musica">🎵 Música</button>
+      <button class="filter-btn" data-filter="desarrollo">⚙️ Desarrollo</button>
+      <button class="filter-btn" data-filter="entretenimiento">😄 Entretenimiento</button>
+      <button class="filter-btn" data-filter="herramientas">🛠️ Herramientas</button>
+    </div>
+
+    <main class="apps-grid">
+      <!-- App 1: Indicadores Económicos -->
+      <article class="app-card" data-category="economia">
+        <span class="badge economia">Economía</span>
+        <h3>Indicadores Económicos</h3>
+        <p>Consulta y analiza indicadores económicos clave en tiempo real para la toma de decisiones informadas.</p>
+        <a href="https://gemini.google.com/share/70d0c8e947cb?hl=es_419" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 2: Explorador de Acordes -->
+      <article class="app-card" data-category="musica">
+        <span class="badge musica">Música</span>
+        <h3>Explorador de Acordes Musicales</h3>
+        <p>Descubre, visualiza y practica acordes para guitarra, piano y otros instrumentos de forma interactiva.</p>
+        <a href="https://gemini.google.com/share/7f252e7a5be3?hl=es_419" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 3: Bancos de Chile -->
+      <article class="app-card" data-category="economia">
+        <span class="badge economia">Chile</span>
+        <h3>Bancos de Chile</h3>
+        <p>Información actualizada sobre instituciones bancarias chilenas: servicios, tasas, contactos y más.</p>
+        <a href="https://gemini.google.com/share/2c859b25a572?hl=es_419" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 4: Guía CMMI y TMMI -->
+      <article class="app-card" data-category="desarrollo">
+        <span class="badge desarrollo">Calidad</span>
+        <h3>Guía de CMMI y TMMI</h3>
+        <p>Recursos y referencias para implementar modelos de madurez en desarrollo y testing de software.</p>
+        <a href="https://gemini.google.com/share/bd6535846e44?hl=es_419" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 5: Catálogo de Música -->
+      <article class="app-card" data-category="musica">
+        <span class="badge musica">Música</span>
+        <h3>Catálogo de Música</h3>
+        <p>Explora un catálogo organizado de música por género, artista, década y más, con recomendaciones inteligentes.</p>
+        <a href="https://gemini.google.com/share/bf030eeb971b?hl=es_419" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 6: Streaming Musical -->
+      <article class="app-card" data-category="musica">
+        <span class="badge musica">Streaming</span>
+        <h3>Streaming Musical</h3>
+        <p>Plataforma para descubrir y gestionar tu música favorita con integración de inteligencia artificial.</p>
+        <a href="https://gemini.google.com/u/0/app/9cb09d5ce5b62af9" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 7: Comparador de Ofertas -->
+      <article class="app-card" data-category="economia">
+        <span class="badge economia">Compras</span>
+        <h3>Comparador de Ofertas</h3>
+        <p>Compara precios, descuentos y promociones de productos en tiempo real para ahorrar inteligentemente.</p>
+        <a href="https://aistudio.google.com/u/0/apps/401fbbaa-cf61-4180-ba2a-2e745d680ac3?showPreview=true&showAssistant=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 8: Noticias con Humor -->
+      <article class="app-card" data-category="entretenimiento">
+        <span class="badge entretenimiento">Humor</span>
+        <h3>Noticias con Humor</h3>
+        <p>Las noticias del día con un toque de sátira e inteligencia artificial para mantenerse informado sonriendo.</p>
+        <a href="https://aistudio.google.com/u/0/apps/c0d6bc1c-0e22-497e-8ce3-9391e33bf0e4?showPreview=true&showAssistant=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 9: Noticias con Humor 2 -->
+      <article class="app-card" data-category="entretenimiento">
+        <span class="badge entretenimiento">Humor+</span>
+        <h3>Noticias con Humor 2</h3>
+        <p>Versión alternativa con enfoque fresco y creativo para consumir actualidad con una sonrisa.</p>
+        <a href="https://ai.studio/apps/997ec526-f334-45d7-97ca-7bf1d9fb14b7?fullscreenApplet=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 10: Editor de Imágenes -->
+      <article class="app-card" data-category="herramientas">
+        <span class="badge herramientas">Edición</span>
+        <h3>Editor de Imágenes AI</h3>
+        <p>Herramienta de edición potenciada con IA para retocar, mejorar y transformar tus imágenes fácilmente.</p>
+        <a href="https://aistudio.google.com/u/0/apps/b13f63a3-135c-4a89-8584-3b2ffc1000ea?showPreview=true&showAssistant=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+    </main>
+
+    <!-- Notas informativas -->
+    <section class="notes">
+      <h4>ℹ️ Notas importantes</h4>
+      <ul>
+        <li>Algunas aplicaciones requieren iniciar sesión con tu cuenta de Google.</li>
+        <li>Los enlaces de AI Studio pueden tener vista previa habilitada para mejor experiencia.</li>
+        <li>Este archivo funciona completamente offline una vez guardado en tu dispositivo.</li>
+        <li>Recomendado usar en navegadores modernos: Chrome, Edge, Firefox o Safari.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© 2026 • Listado de Aplicaciones Gemini & AI Studio • Diseño profesional y sobrio</p>
+      <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+        💡 Guarda este archivo como <code>gemini-ai-apps.html</code> y ábrelo en tu navegador.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Filtro por categoría
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Actualizar estado activo
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filter = this.dataset.filter;
+        document.querySelectorAll('.app-card').forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Accesibilidad: foco visible en teclado
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('focus', e => {
+        e.target.style.outline = '2px solid #3498db';
+        e.target.style.outlineOffset = '2px';
+      });
+      el.addEventListener('blur', e => {
+        e.target.style.outline = 'none';
+      });
+    });
+
+    // Efecto suave al cargar
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.app-card').forEach((card, i) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 150 * i);
+      });
+    });
+  </script>
+</body>
+</html>
