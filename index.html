@@ -31,7 +31,7 @@
       padding: 2rem 1rem;
     }
 
-    .container { max-width: 1100px; margin: 0 auto; }
+    .container { max-width: 1200px; margin: 0 auto; }
 
     /* Header */
     header {
@@ -45,7 +45,22 @@
     }
 
     header h1 { font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; }
-    header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+    header p { font-size: 1.1rem; opacity: 0.9; max-width: 750px; margin: 0 auto; }
+
+    /* Stats bar */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      background: rgba(255,255,255,0.15);
+      padding: 0.5rem 1.25rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
 
     /* Filtros de categoría */
     .filters {
@@ -144,6 +159,7 @@
     .badge.desarrollo { background: #e8f5e9; color: #27ae60; }
     .badge.entretenimiento { background: #fef3e2; color: #d35400; }
     .badge.herramientas { background: #f4ecf7; color: #8e44ad; }
+    .badge.utilidad { background: #eef2f7; color: #5d6d7e; }
 
     .app-card p {
       color: var(--color-text-light);
@@ -215,6 +231,8 @@
     @media (max-width: 600px) {
       header h1 { font-size: 1.5rem; }
       header p { font-size: 1rem; }
+      .stats { gap: 1rem; }
+      .stat-item { padding: 0.4rem 1rem; font-size: 0.85rem; }
       .app-card { padding: 1.25rem; }
       .filters { flex-direction: column; align-items: center; }
       .filter-btn { width: 100%; max-width: 250px; }
@@ -225,7 +243,7 @@
       body { background: white; padding: 0; }
       .app-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
       .app-link { background: white; color: var(--color-accent); border: 1px solid var(--color-accent); }
-      .filters, .notes { display: none; }
+      .filters, .notes, .stats { display: none; }
     }
   </style>
 </head>
@@ -234,6 +252,12 @@
     <header>
       <h1>🚀 Aplicaciones Gemini & AI Studio</h1>
       <p>Recopilación profesional de herramientas desarrolladas con Google Gemini y AI Studio para productividad, música, finanzas, entretenimiento y más.</p>
+      <div class="stats">
+        <span class="stat-item">📦 12 Aplicaciones</span>
+        <span class="stat-item">🎵 4 Música</span>
+        <span class="stat-item">💰 3 Economía</span>
+        <span class="stat-item">✨ 5 Categorías</span>
+      </div>
     </header>
 
     <!-- Filtros por categoría -->
@@ -244,6 +268,7 @@
       <button class="filter-btn" data-filter="desarrollo">⚙️ Desarrollo</button>
       <button class="filter-btn" data-filter="entretenimiento">😄 Entretenimiento</button>
       <button class="filter-btn" data-filter="herramientas">🛠️ Herramientas</button>
+      <button class="filter-btn" data-filter="utilidad">✨ Utilidad</button>
     </div>
 
     <main class="apps-grid">
@@ -295,12 +320,12 @@
         <a href="https://gemini.google.com/u/0/app/9cb09d5ce5b62af9" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
 
-      <!-- App 7: Comparador de Ofertas -->
-      <article class="app-card" data-category="economia">
-        <span class="badge economia">Compras</span>
-        <h3>Comparador de Ofertas</h3>
-        <p>Compara precios, descuentos y promociones de productos en tiempo real para ahorrar inteligentemente.</p>
-        <a href="https://aistudio.google.com/u/0/apps/401fbbaa-cf61-4180-ba2a-2e745d680ac3?showPreview=true&showAssistant=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      <!-- App 7: Comparador de Precios -->
+      <article class="app-card" data-category="utilidad">
+        <span class="badge utilidad">Utilidad</span>
+        <h3>Comparador de Precios</h3>
+        <p>Compara precios de productos y servicios en tiempo real para encontrar las mejores ofertas y ahorrar inteligentemente.</p>
+        <a href="https://gemini.google.com/share/d1af827b858c" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
 
       <!-- App 8: Noticias con Humor -->
@@ -308,7 +333,7 @@
         <span class="badge entretenimiento">Humor</span>
         <h3>Noticias con Humor</h3>
         <p>Las noticias del día con un toque de sátira e inteligencia artificial para mantenerse informado sonriendo.</p>
-        <a href="https://aistudio.google.com/u/0/apps/c0d6bc1c-0e22-497e-8ce3-9391e33bf0e4?showPreview=true&showAssistant=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+        <a href="https://aistudio.google.com/apps/b305b026-1bb2-4458-ad44-f703aa62f096?fullscreenApplet=true&showPreview=true&showAssistant=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
 
       <!-- App 9: Noticias con Humor 2 -->
@@ -326,6 +351,22 @@
         <p>Herramienta de edición potenciada con IA para retocar, mejorar y transformar tus imágenes fácilmente.</p>
         <a href="https://aistudio.google.com/u/0/apps/b13f63a3-135c-4a89-8584-3b2ffc1000ea?showPreview=true&showAssistant=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
+
+      <!-- App 11: Generador de Escalas Musicales -->
+      <article class="app-card" data-category="musica">
+        <span class="badge musica">Música</span>
+        <h3>Generador de Escalas Musicales</h3>
+        <p>Crea y explora escalas musicales personalizadas para composición, improvisación y estudio teórico.</p>
+        <a href="https://gemini.google.com/share/ed2ef9bfbf8d?hl=es_419" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 12: Explorador de Acordes Pro -->
+      <article class="app-card" data-category="musica">
+        <span class="badge musica">Pro</span>
+        <h3>Explorador de Acordes Musicales Pro</h3>
+        <p>Versión avanzada con funciones premium: progresiones, inversiones, voicings y exportación MIDI.</p>
+        <a href="https://gemini.google.com/u/0/app/86830ee9f1c71cf9?hl=es_419" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
     </main>
 
     <!-- Notas informativas -->
@@ -336,6 +377,7 @@
         <li>Los enlaces de AI Studio pueden tener vista previa habilitada para mejor experiencia.</li>
         <li>Este archivo funciona completamente offline una vez guardado en tu dispositivo.</li>
         <li>Recomendado usar en navegadores modernos: Chrome, Edge, Firefox o Safari.</li>
+        <li><strong>Tip:</strong> Puedes editar títulos, descripciones y categorías directamente en el código HTML.</li>
       </ul>
     </section>
 
@@ -351,7 +393,6 @@
     // Filtro por categoría
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', function() {
-        // Actualizar estado activo
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         
@@ -386,7 +427,7 @@
         setTimeout(() => {
           card.style.opacity = '1';
           card.style.transform = 'translateY(0)';
-        }, 150 * i);
+        }, 100 * i);
       });
     });
   </script>
