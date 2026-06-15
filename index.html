@@ -160,6 +160,7 @@
     .badge.entretenimiento { background: #fef3e2; color: #d35400; }
     .badge.herramientas { background: #f4ecf7; color: #8e44ad; }
     .badge.utilidad { background: #eef2f7; color: #5d6d7e; }
+    .badge.chile { background: #d4edda; color: #155724; }
 
     .app-card p {
       color: var(--color-text-light);
@@ -253,10 +254,10 @@
       <h1>🚀 Aplicaciones Gemini & AI Studio</h1>
       <p>Recopilación profesional de herramientas desarrolladas con Google Gemini y AI Studio para productividad, música, finanzas, entretenimiento y más.</p>
       <div class="stats">
-        <span class="stat-item">📦 14 Aplicaciones</span>
+        <span class="stat-item">📦 16 Aplicaciones</span>
         <span class="stat-item">🎵 4 Música</span>
-        <span class="stat-item">💰 3 Economía</span>
-        <span class="stat-item">✨ 6 Categorías</span>
+        <span class="stat-item">🇨🇱 3 Chile</span>
+        <span class="stat-item">✨ 7 Categorías</span>
       </div>
     </header>
 
@@ -269,6 +270,7 @@
       <button class="filter-btn" data-filter="entretenimiento">😄 Entretenimiento</button>
       <button class="filter-btn" data-filter="herramientas">🛠️ Herramientas</button>
       <button class="filter-btn" data-filter="utilidad">✨ Utilidad</button>
+      <button class="filter-btn" data-filter="chile">🇨🇱 Chile</button>
     </div>
 
     <main class="apps-grid">
@@ -289,8 +291,8 @@
       </article>
 
       <!-- App 3: Bancos de Chile -->
-      <article class="app-card" data-category="economia">
-        <span class="badge economia">Chile</span>
+      <article class="app-card" data-category="chile">
+        <span class="badge chile">🇨🇱 Chile</span>
         <h3>Bancos de Chile</h3>
         <p>Información actualizada sobre instituciones bancarias chilenas: servicios, tasas, contactos y más.</p>
         <a href="https://gemini.google.com/share/2c859b25a572?hl=es_419" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
@@ -368,7 +370,7 @@
         <a href="https://gemini.google.com/u/0/app/86830ee9f1c71cf9?hl=es_419" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
 
-      <!-- App 13: Traductor de PDF ✅ NUEVO -->
+      <!-- App 13: Traductor de PDF -->
       <article class="app-card" data-category="herramientas">
         <span class="badge herramientas">Traducción</span>
         <h3>Traductor de PDF Inglés a Español</h3>
@@ -376,12 +378,28 @@
         <a href="https://gemini.google.com/share/534d3fbdffcd" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
 
-      <!-- App 14: Destructor de Noticias ✅ NUEVO -->
+      <!-- App 14: Destructor de Noticias -->
       <article class="app-card" data-category="entretenimiento">
         <span class="badge entretenimiento">Sátira</span>
         <h3>Destructor de Noticias</h3>
         <p>Analiza y deconstruye noticias con IA para identificar sesgos, exageraciones y contenido engañoso con humor crítico.</p>
         <a href="https://aistudio.google.com/u/0/apps/67146fd4-76a3-46ca-9a74-ef645b2e0eb3?showPreview=true&showAssistant=true&fullscreenApplet=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 15: Creador de Ruts ✅ NUEVO -->
+      <article class="app-card" data-category="chile">
+        <span class="badge chile">🇨🇱 Chile</span>
+        <h3>Creador de RUTs</h3>
+        <p>Genera y valida RUTs chilenos con algoritmo de dígito verificador. Ideal para testing, desarrollo y trámites.</p>
+        <a href="https://gemini.google.com/share/c7a74cc86001" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 16: Ocultar Datos de Cédula ✅ NUEVO -->
+      <article class="app-card" data-category="utilidad">
+        <span class="badge utilidad">Privacidad</span>
+        <h3>Ocultar Datos de Cédula</h3>
+        <p>Herramienta para enmascarar datos sensibles de documentos de identidad en capturas o formularios. Protege tu privacidad.</p>
+        <a href="https://gemini.google.com/share/f06c4107f5ed" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
     </main>
 
@@ -394,6 +412,7 @@
         <li>Este archivo funciona completamente offline una vez guardado en tu dispositivo.</li>
         <li>Recomendado usar en navegadores modernos: Chrome, Edge, Firefox o Safari.</li>
         <li><strong>Tip:</strong> Puedes editar títulos, descripciones y categorías directamente en el código HTML.</li>
+        <li>🇨🇱 Las apps con badge verde están enfocadas en herramientas y datos de Chile.</li>
       </ul>
     </section>
 
@@ -443,7 +462,7 @@
         setTimeout(() => {
           card.style.opacity = '1';
           card.style.transform = 'translateY(0)';
-        }, 80 * i);
+        }, 70 * i);
       });
     });
   </script>
