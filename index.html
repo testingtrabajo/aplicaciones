@@ -161,6 +161,7 @@
     .badge.herramientas { background: #f4ecf7; color: #8e44ad; }
     .badge.utilidad { background: #eef2f7; color: #5d6d7e; }
     .badge.chile { background: #d4edda; color: #155724; }
+    .badge.audio { background: #e3f2fd; color: #1976d2; }
 
     .app-card p {
       color: var(--color-text-light);
@@ -254,10 +255,10 @@
       <h1>🚀 Aplicaciones Gemini & AI Studio</h1>
       <p>Recopilación profesional de herramientas desarrolladas con Google Gemini y AI Studio para productividad, música, finanzas, entretenimiento y más.</p>
       <div class="stats">
-        <span class="stat-item">📦 16 Aplicaciones</span>
+        <span class="stat-item">📦 17 Aplicaciones</span>
         <span class="stat-item">🎵 4 Música</span>
-        <span class="stat-item">🇨🇱 3 Chile</span>
-        <span class="stat-item">✨ 7 Categorías</span>
+        <span class="stat-item">🇨🇱 2 Chile</span>
+        <span class="stat-item">✨ 8 Categorías</span>
       </div>
     </header>
 
@@ -386,7 +387,7 @@
         <a href="https://aistudio.google.com/u/0/apps/67146fd4-76a3-46ca-9a74-ef645b2e0eb3?showPreview=true&showAssistant=true&fullscreenApplet=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
 
-      <!-- App 15: Creador de Ruts ✅ NUEVO -->
+      <!-- App 15: Creador de RUTs -->
       <article class="app-card" data-category="chile">
         <span class="badge chile">🇨🇱 Chile</span>
         <h3>Creador de RUTs</h3>
@@ -394,12 +395,20 @@
         <a href="https://gemini.google.com/share/c7a74cc86001" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
 
-      <!-- App 16: Ocultar Datos de Cédula ✅ NUEVO -->
+      <!-- App 16: Ocultar Datos de Cédula -->
       <article class="app-card" data-category="utilidad">
         <span class="badge utilidad">Privacidad</span>
         <h3>Ocultar Datos de Cédula</h3>
         <p>Herramienta para enmascarar datos sensibles de documentos de identidad en capturas o formularios. Protege tu privacidad.</p>
         <a href="https://gemini.google.com/share/f06c4107f5ed" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
+      </article>
+
+      <!-- App 17: Transcripción de Audio ✅ NUEVO -->
+      <article class="app-card" data-category="herramientas">
+        <span class="badge audio">🎙️ Audio</span>
+        <h3>Transcripción de Audio</h3>
+        <p>Convierte archivos de audio a texto con precisión. Ideal para entrevistas, reuniones, podcasts y contenido multimedia.</p>
+        <a href="https://aistudio.google.com/apps/44fb5c13-e85d-455a-890f-0e5d5785b580?showPreview=true&showAssistant=true" target="_blank" rel="noopener" class="app-link">Abrir aplicación</a>
       </article>
     </main>
 
@@ -413,6 +422,7 @@
         <li>Recomendado usar en navegadores modernos: Chrome, Edge, Firefox o Safari.</li>
         <li><strong>Tip:</strong> Puedes editar títulos, descripciones y categorías directamente en el código HTML.</li>
         <li>🇨🇱 Las apps con badge verde están enfocadas en herramientas y datos de Chile.</li>
+        <li>🎙️ La app de transcripción soporta múltiples formatos de audio y idiomas.</li>
       </ul>
     </section>
 
@@ -462,7 +472,7 @@
         setTimeout(() => {
           card.style.opacity = '1';
           card.style.transform = 'translateY(0)';
-        }, 70 * i);
+        }, 65 * i);
       });
     });
   </script>
